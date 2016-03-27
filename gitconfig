@@ -1,0 +1,24 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+user = Pete Hamling
+email = pete@roki.io
+	excludesfile = /Users/pete/.gitignore_global
+	editor = vim
+[user]
+	name = Pete Hamling
+	email = pete@roki.io
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = opendiff
+[diff]
+	tool = opendiff
+[alias]
+	graph = log --graph --oneline --decorate
+[push]
+	default = simple
