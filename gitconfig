@@ -16,6 +16,7 @@ email = pete@roki.io
 	trustExitCode = true
 [merge]
 	tool = opendiff
+	ff = false
 [diff]
 	tool = opendiff
 [alias]

@@ -13,6 +13,7 @@ Plugin 'matchit.zip'
 " Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'nvie/vim-flake8'
 Plugin 'klen/python-mode'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,9 +65,11 @@ nmap £ #
 map £ #
 
 " Mappings
+let mapleader = "\<Space>"
 nmap <Leader>c :set cursorcolumn! cursorline!<CR>
 nmap <Leader>v :set list!<CR>
 nmap <Leader>n :set number!<CR>
+nmap <Leader>m :set relativenumber!<CR>
 
 set incsearch
 
