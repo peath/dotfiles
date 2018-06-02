@@ -10,6 +10,7 @@ set path=.,**
 set noerrorbells visualbell t_vb=
 set mouse=a
 set incsearch
+set hlsearch
 set encoding=utf-8
 
 " Mac Keyboard weirdness
@@ -28,6 +29,10 @@ nmap <Leader>m :set relativenumber!<CR>
 set background=dark
 if has('gui_running')
     colorscheme evening
+    highlight Normal guibg=grey25
+    " highlight String guifg=grey10
+    set guifont=Inconsolata\ for\ Powerline:h14
+    set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
 else
     colorscheme evening
     highlight Normal ctermbg=238
@@ -36,7 +41,7 @@ else
 endif
 highlight BadWhitespace ctermbg=red guibg=darkred
 
-au BufNewFile,BufRead *.js,*.html,*.css
+au BufNewFile,BufRead *.js,*.html,*.css,*.vue
     \ set expandtab |
     \ set tabstop=2 |
     \ set softtabstop=2 |
@@ -60,6 +65,8 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('python-mode/python-mode')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('w0rp/ale')
+call minpac#add('posva/vim-vue')
 
 
 command! PackUpdate call minpac#update()
@@ -76,6 +83,8 @@ nnoremap <Leader>/ :Grepper -tool rg<CR>
 set grepprg=rg\ -H\ --no-heading\ --vimgrep
 set grepformat=$f:$l:%c:%m    
 
+let g:ale_linters = { 'javascript': ['eslint'], }
+
 let g:pymode = 1
 let g:pymode_python = 'python3'
 let g:pymode_indent = 1 
@@ -83,9 +92,10 @@ let g:pymode_options_max_line_length = 100
 let g:pymode_options_colorcolumn = 1
 let g:pymode_folding = 0
 let g:pymode_virtualenv = 1
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_unmodified = 1
+
+let g:pymode_lint = 0
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_unmodified = 0
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
 let g:pymode_lint_ignore = []
 " let g:pymode_rope = 1
